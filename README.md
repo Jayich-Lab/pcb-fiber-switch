@@ -17,7 +17,7 @@ Secondary TTL control can be used with each switch instead of the teensy. It is 
 * 1x power cable (~$5)
 * 1x [Acopian 8EB110](https://www.acopian.com/store/productdetail.aspx?q=i586) 8 V, 1.1 A power supply (~$185)
 * 1x [CW Industries GRS-4011-0076](https://www.digikey.com/product-detail/en/cw-industries/GRS-4011-0076/SW323-ND) switch (~$1)
-* 6x [Molex 0190700007](https://www.digikey.com/product-detail/en/molex/0190700007/WM18272-ND) (~$0.2)
+* 7x [Molex 0190700007](https://www.digikey.com/product-detail/en/molex/0190700007/WM18272-ND) (~$0.2)
 * 1x [L-com ECF504-UAAS](https://www.l-com.com/usb-usb-adapter-a-a-shielded) USB panel mount adapter (~$9)
 * 1x [L-com CAA-90UMICB-03M](https://www.l-com.com/usb-angled-usb-cable-straight-a-male-up-angle-micro-b-male-03m) USB cable (~$12)
 
