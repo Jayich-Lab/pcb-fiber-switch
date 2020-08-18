@@ -50,5 +50,6 @@ Secondary TTL control can be used with each switch instead of the teensy. It is 
 
 ### Mechanical
 * 6x 4-40 x 1/4" socket head screws
-* 4x [6-32 x 1/4" nylon screws](https://www.digikey.com/product-detail/en/essentra-components/010632R025/RPC7281-ND) (~$0.1)
-* 4x [6-32 x 1/4" self-tapping screws](https://www.digikey.com/products/en?keywords=1421J6) ($5 per pack of 6)
+* 12x [6-32 x 1/4" nylon screws](https://www.digikey.com/product-detail/en/essentra-components/010632R025/RPC7281-ND) (~$0.1)
+* 4x [6-32 x 1/4" self-tapping screws](https://www.digikey.com/products/en?keywords=1421J6) (~$5 per pack of 6)
+* 8x [6-32 1" long standoff](https://www.digikey.com/product-detail/en/keystone-electronics/1903E/36-1903E-ND) (~$0.9)
