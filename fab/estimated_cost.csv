@@ -1,0 +1,56 @@
+﻿Manufacturer Part Number,Manufacturer,Digi-Key Part Number,Customer Reference,Reference Designator,Packaging,Part Status,Quantity,Unit Price,Extended Price,Quantity Available,Mfg Std Lead Time,Description,RoHS Status,Lead Free Status,REACH Status
+1444-1763,Hammond Manufacturing,HM2784-ND,,,Bulk,Active,1,32.06,$32.06 ,11,4 Weeks,"CHASSIS ALUM NATURAL 6""L X 17""W",ROHS3 Compliant,Lead free,REACH Unaffected
+GRS-4011-0076,CW Industries,SW323-ND,,,Bulk,Active,1,1.03,$1.03 ,10105,12 Weeks,SWITCH ROCKER SPST 16A 125V,ROHS3 Compliant,Lead free,Not Available
+190700007,Molex,WM18272-ND,,,Bulk,Active,10,0.199,$1.99 ,7894,3 Weeks,CONN RING CIRC 18-22AWG #4 CRIMP,ROHS3 Compliant,Lead free,REACH Unaffected
+AWG28-10/G/300,Assmann WSW Components,AE10G-10-ND,,,Bulk,Active,1,5.27,$5.27 ,28,Not Available,CBL RIBN 10COND 0.050 GRAY 10',ROHS3 Compliant,Lead free,REACH Unaffected
+AWP 10-7240-T,Assmann WSW Components,HHKC10H-ND,,,Tray,Active,25,0.4052,$10.13 ,35059,23 Weeks,CONN SOCKET 10POS IDC GOLD,ROHS3 Compliant,Lead free,REACH Unaffected
+AWH 10A-0232-T,Assmann WSW Components,AE11069-ND,,,Tray,Active,20,1.357,$27.14 ,521,23 Weeks,CONN HEADER R/A 10POS 2.54MM,ROHS3 Compliant,Lead free,REACH Unaffected
+2756,Adafruit Industries LLC,1528-2385-ND,,,Bulk,Active,1,24.94,$24.94 ,347,Not Available,TEENSY 3.2 K20 EVAL BRD,RoHS non-compliant,Not Available,Not Available
+22142144,Molex,WM20972-ND,,,Tray,Active,2,1.84,$3.68 ,1743,18 Weeks,CONN RCPT 14POS 0.1 TIN PCB,ROHS3 Compliant,Lead free,REACH Unaffected
+MC7805CTG,ON Semiconductor,MC7805CTGOS-ND,,,Tube,Active,1,0.46,$0.46 ,22618,15 Weeks,IC REG LINEAR 5V 1A TO220AB,ROHS3 Compliant,Lead free,REACH Unaffected
+577002B00000G,"Aavid, Thermal Division of Boyd Corporation",HS105-ND,,,Bag,Active,1,0.26,$0.26 ,12087,7 Weeks,"HEAT SINK TO-220 .250"" COMPACT",RoHS Compliant,Lead free,Not Available
+CC1812KKX7R9BB334,Yageo,311-3574-1-ND,,,Cut Tape (CT),Active,1,0.66,$0.66 ,3990,33 Weeks,CAP CER 0.33UF 50V X7R 1812,ROHS3 Compliant,Lead free,REACH Unaffected
+10897200,Molex,WM19410-ND,,,Bag,Active,10,2.647,$26.47 ,325,6 Weeks,CONN HEADER VERT 20POS 2.54MM,ROHS3 Compliant,Lead free,REACH Unaffected
+15291025,Molex,WM23943-ND,,,Bag,Active,10,0.524,$5.24 ,12011,4 Weeks,CONN SHUNT CLOSED TOP .100 GOLD,ROHS3 Compliant,Lead free,REACH Unaffected
+MOC3023S-TA1,Lite-On Inc.,160-1894-1-ND,,,Cut Tape (CT),Active,10,0.491,$4.91 ,16121,12 Weeks,OPTOISOLATOR 5KV TRIAC 6SMD,ROHS3 Compliant,Lead free,Not Available
+100DP1T2B4M6QE,E-Switch,EG2404-ND,,,Bulk,Active,10,3.382,$33.82 ,9820,9 Weeks,SWITCH TOGGLE DPDT 5A 120V,ROHS3 Compliant,Lead free,REACH Unaffected
+LTL1CHKRKNN,Lite-On Inc.,160-1661-ND,,,Bulk,Active,10,0.232,$2.32 ,28085,12 Weeks,LED RED CLEAR T-1 T/H,ROHS3 Compliant,Lead free,Not Available
+1-1337543-0,TE Connectivity AMP Connectors,A97553-ND,,,Box,Active,10,1.514,$15.14 ,5073,15 Weeks,CONN BNC JACK R/A 50 OHM PCB,RoHS Compliant,Lead free,Not Available
+3521300RFT,TE Connectivity Passive Product,A116019CT-ND,,,Cut Tape (CT),Active,10,0.498,$4.98 ,127308,18 Weeks,RES SMD 300 OHM 1% 2W 2512,RoHS Compliant,Lead free,Not Available
+3521150RFT,TE Connectivity Passive Product,A116012CT-ND,,,Cut Tape (CT),Active,10,0.48,$4.80 ,36579,18 Weeks,RES SMD 150 OHM 1% 2W 2512,RoHS Compliant,Lead free,Not Available
+010632R025,Essentra Components,RPC7281-ND,,,Bulk,Active,5,0.078,$0.39 ,14775,7 Weeks,"ROUND SLOTTED SCREW, NATURAL, NY",RoHS Compliant,Lead free,Not Available
+1421J6,Hammond Manufacturing,HM1478-ND,,,Bulk,Active,1,5.13,$5.13 ,135,4 Weeks,SHT MTL SCREW PHILLIPS 6-32 6/PK,ROHS3 Compliant,Lead free,REACH Unaffected
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+L-com,,,,,,,,,,,,,,,
+ECF504-UAAS,,,,,,,1,8.61,$8.61 ,,,"USB Adapter A-A, Shielded",,,
+CAA-90UMICB-03M,,,,,,,1,10.13,$10.13 ,,,"Angled USB cable, Straight A Male/ Up Angle Micro B Male, 0.3m",,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Thorlabs,,,,,,,,,,,,,,,
+ADAFC4,,,,,,,24,15.8,$379.20 ,,,"ADAFC4 - FC/APC to FC/APC Mating Sleeve, Narrow Key (2.0 mm), D-Hole",,,
+Fiber 1m,,,,,,,8,100,$800.00 ,,,,,,
+,,,,,,,,,,,,,,,
+OSH Park,,,,,,,,,,,,,,,
+fiber_switch_controller_board v1.0,,,,,,,1,29.75,$29.75 ,,,,,,
+fiber_switch_switch_board v1.0,,,,,,,3,46.05,$138.15 ,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Agiltron,,,,,,,,,,,,,,,
+SM450,,,,,,,1,650,$650.00 ,,,,,,
+SM600,,,,,,,1,610,$610.00 ,,,,,,
+Hi980,,,,,,,1,310,$310.00 ,,,,,,
+,,,,,,,,,,,,,,,
+Total cost now,,,,,,,,,"$3,146.66 ",,,,,,
+,,,,,,,,,,,,,,,
+Agiltron future,,,,,,,,,,,,,,,
+SM800,,,,,,,1,350,$350.00 ,,,,,,
+SM450,,,,,,,1,650,$650.00 ,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Agiltron future future,,,,,,,,,,,,,,,
+SM600,,,,,,,1,610,$610.00 ,,,,,,
+SM450,,,,,,,1,650,$650.00 ,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Estimated long term cost,,,,,,,,,"$5,406.66 ",,,,,,
