@@ -46,6 +46,7 @@ Secondary TTL control can be used with each switch instead of the teensy. It is 
 * 1x [TE connectivity 1-1337543-0](https://www.digikey.com/products/en?keywords=1-1337543-0) BNC right angle connector (~$1.7)
 * 1x [TE Connectivity 3521300RFT](https://www.digikey.com/products/en?keywords=A116019CT-ND) 300 ohm resisitor (~$0.7)
 * 1x [TE Connectivity 3521150RFT](https://www.digikey.com/products/en?keywords=A116012CT-ND) 150 ohm resisitor (~$0.7)
+* 3x [Thorlabs ADAFC4](https://www.thorlabs.com/thorproduct.cfm?partnumber=ADAFC4) FC fiber connectors (~$16)
 
 ### Mechanical
 * 6x 4-40 x 1/4" socket head screws
