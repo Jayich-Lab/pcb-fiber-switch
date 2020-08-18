@@ -28,7 +28,7 @@ Secondary TTL control can be used with each switch instead of the teensy. It is 
 
 ### Controller board
 * 1x controller board in the repo (~$50 for 3 copies)
-* 1x [Teensy 3.2 with soldered pins](https://www.pjrc.com/store/teensy32_pins.html) (~$20)
+* 1x [Teensy 3.2 with pins](https://www.digikey.com/product-detail/en/adafruit-industries-llc/2756/1528-2385-ND) (~$20)
 * 2x [Molex 0022142144](https://www.digikey.com/product-detail/en/molex/0022142144/WM20972-ND) (~$1.84)
 * 1x [ON MC7805CTG](https://www.digikey.com/product-detail/en/on-semiconductor/MC7805CTG/MC7805CTGOS-ND) 5 V, 1 A voltage regulator (~$0.5)
 * 1x [heat sink](https://www.digikey.com/product-detail/en/aavid-thermal-division-of-boyd-corporation/577002B00000G/HS105-ND) (~$0.3)
