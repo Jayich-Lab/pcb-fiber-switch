@@ -1611,29 +1611,37 @@ design rules under a new name.</description>
 <contactref element="U$2" pad="P$10"/>
 <contactref element="IC1" pad="2"/>
 <contactref element="C1" pad="1"/>
-<wire x1="35.56" y1="44.45" x2="44.45" y2="35.56" width="0.762" layer="1"/>
-<wire x1="44.45" y1="35.56" x2="44.45" y2="10.16" width="0.762" layer="1"/>
-<wire x1="44.45" y1="10.16" x2="46.99" y2="7.62" width="0.762" layer="1"/>
-<wire x1="46.99" y1="7.62" x2="52.07" y2="7.62" width="0.762" layer="1"/>
-<wire x1="52.07" y1="7.62" x2="53.34" y2="8.89" width="0.762" layer="1"/>
-<wire x1="53.34" y1="8.89" x2="53.34" y2="46.99" width="0.762" layer="1"/>
-<polygon width="0.762" layer="16">
-<vertex x="0" y="68.58"/>
-<vertex x="0" y="0"/>
-<vertex x="55.88" y="0"/>
-<vertex x="55.88" y="68.58"/>
-</polygon>
 <wire x1="12.7" y1="53.34" x2="16.51" y2="49.53" width="0.762" layer="1"/>
 <wire x1="24.13" y1="53.34" x2="24.13" y2="58.42" width="0.762" layer="1"/>
 <wire x1="26.08" y1="60.37" x2="26.08" y2="62.23" width="0.762" layer="1"/>
 <wire x1="24.13" y1="58.42" x2="26.08" y2="60.37" width="0.762" layer="1"/>
 <wire x1="26.08" y1="62.23" x2="38.1" y2="62.23" width="0.762" layer="1"/>
-<wire x1="38.1" y1="62.23" x2="53.34" y2="46.99" width="0.762" layer="1"/>
+<wire x1="53.34" y1="46.99" x2="38.1" y2="62.23" width="0.762" layer="1"/>
 <wire x1="25.4" y1="46.99" x2="24.13" y2="48.26" width="0.762" layer="1"/>
 <wire x1="24.13" y1="48.26" x2="24.13" y2="49.53" width="0.762" layer="1"/>
 <wire x1="24.13" y1="49.53" x2="24.13" y2="53.34" width="0.762" layer="1"/>
 <wire x1="25.4" y1="31.75" x2="25.4" y2="46.99" width="0.762" layer="1"/>
 <wire x1="16.51" y1="49.53" x2="24.13" y2="49.53" width="0.762" layer="1"/>
+<polygon width="0.1524" layer="16">
+<vertex x="0" y="60.96"/>
+<vertex x="7.62" y="60.96"/>
+<vertex x="7.62" y="68.58"/>
+<vertex x="48.26" y="68.58"/>
+<vertex x="48.26" y="60.96"/>
+<vertex x="55.88" y="60.96"/>
+<vertex x="55.88" y="7.62"/>
+<vertex x="48.26" y="7.62"/>
+<vertex x="48.26" y="0"/>
+<vertex x="7.62" y="0"/>
+<vertex x="7.62" y="7.62"/>
+<vertex x="0" y="7.62"/>
+</polygon>
+<wire x1="45.72" y1="10.16" x2="46.99" y2="8.89" width="0.762" layer="1"/>
+<wire x1="46.99" y1="8.89" x2="52.07" y2="8.89" width="0.762" layer="1"/>
+<wire x1="52.07" y1="8.89" x2="53.34" y2="10.16" width="0.762" layer="1"/>
+<wire x1="53.34" y1="10.16" x2="53.34" y2="46.99" width="0.762" layer="1"/>
+<wire x1="35.56" y1="44.45" x2="45.72" y2="34.29" width="0.762" layer="1"/>
+<wire x1="45.72" y1="34.29" x2="45.72" y2="10.16" width="0.762" layer="1"/>
 </signal>
 <signal name="LOGIC1">
 <contactref element="U$1" pad="2"/>
