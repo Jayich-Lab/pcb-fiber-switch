@@ -1,17 +1,29 @@
-const int num_chan = 8;
+const int BAUDRATE = 9600;
+const int TIMEOUT = 50;
+const int MIN_SWITCH_TIME = 10;
+
+const int CHAN_NUM = 8;
+
+const int ERROR_COMMAND_SHORT = 0;
+const int ERROR_CHAN_NOT_VALID = 1;
+const int ERROR_COMMAND_NOT_SET_OR_GET = 2;
+const int ERROR_COMMAND_CHAR_NOT_FOUND = 3;
+const int ERROR_STATE_NOT_FOUND = 4;
+const int ERROR_TIME_NOT_VALID = 5;
+
 unsigned long time_now = 0;
-unsigned long time_step = 0;
-int chans[num_chan] = {2, 3, 4, 5, 6, 7, 8, 9};
-unsigned long times[num_chan] = {0, 0, 0, 0, 0, 0, 0, 0};
-unsigned long switch_times[num_chan] = {1000, 2000, 3000, 4000,
+unsigned long times[CHAN_NUM] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+int chans[CHAN_NUM] = {2, 3, 4, 5, 6, 7, 8, 9};
+unsigned int switch_times[CHAN_NUM] = {1000, 2000, 3000, 4000,
                                         5000, 6000, 7000, 8000};
-bool auto_switches[num_chan] = {false, false, false, false,
+bool auto_switches[CHAN_NUM] = {false, false, false, false,
                                 false, false, false, false};
-bool manual_switch_overrides[num_chan] = {false, false, false, false,
+bool manual_switch_overrides[CHAN_NUM] = {false, false, false, false,
                                           false, false, false, false};
-bool manual_switches[num_chan] = {false, false, false, false,
+bool manual_switches[CHAN_NUM] = {false, false, false, false,
                                   false, false, false, false};
-bool manual_switches_updated[num_chan] = {false, false, false, false,
+bool manual_switches_updated[CHAN_NUM] = {false, false, false, false,
                                           false, false, false, false};
 
 int chan_to_int(char chan)
@@ -21,153 +33,178 @@ int chan_to_int(char chan)
 
 String error_msg(int error_code)
 {
-	while(Serial.available()) {	Serial.read(); }
 	return String("ERROR ") + String(error_code);
 }
 
-String execute_set(char command, int chan)
+String execute_set_state(int chan, String state)
 {
-	delay(10);
-	if (Serial.read() == ',')
+	if (state == "AUTO")
 	{
-		if (!Serial.available())
+		manual_switch_overrides[chan] = false;
+	}
+	else if (state == "HIGH" || state == "LOW")
+	{
+		manual_switch_overrides[chan] = true;
+		manual_switches_updated[chan] = true;
+		manual_switches[chan] = (state == "HIGH");
+	}
+	else
+	{
+		return error_msg(ERROR_STATE_NOT_FOUND);
+	}
+	return state;
+}
+
+String execute_set_switch_time(int chan, String switch_time_str)
+{
+	unsigned int switch_time = switch_time_str.toInt();
+	if (switch_time < MIN_SWITCH_TIME)
+	{
+		return error_msg(ERROR_TIME_NOT_VALID);
+	}
+	else
+	{
+		switch_times[chan] = switch_time;
+		times[chan] = 0;
+		return switch_time_str;
+	}
+}
+
+String execute_set(char command_char, int chan, String optional_input)
+{
+	if (command_char == 'S')
+	{
+		return execute_set_state(chan, optional_input);
+	}
+	else if (command_char == 'T')
+	{
+		return execute_set_switch_time(chan, optional_input);
+	}
+	else
+	{
+		return error_msg(ERROR_COMMAND_CHAR_NOT_FOUND);
+	}
+}
+
+String execute_get(char command_char, int chan)
+{
+	if (command_char == 'S')
+	{
+		if (!manual_switch_overrides[chan])
 		{
-			return error_msg(0);
+			return String("AUTO");
 		}
-		if (command == 'S')
+		else if (manual_switches[chan])
 		{
-			String state = Serial.readStringUntil('\n');
-			if (state == "AUTO")
+			return String("HIGH");
+		}
+		else
+		{
+			return String("LOW");
+		}
+	}
+	else if (command_char == 'T')
+	{
+		return String(switch_times[chan]);
+	}
+	else
+	{
+		return error_msg(ERROR_COMMAND_CHAR_NOT_FOUND);
+	}
+}
+
+bool parse_command(String command, char* command_char, int* chan, char* operation_char, String* optional_input)
+{
+	if (command.length() > 2)
+	{
+		*command_char = command.charAt(0);
+		*chan = chan_to_int(command.charAt(1));
+		*operation_char = command.charAt(2);
+		if (*operation_char == ',')
+		{
+			*optional_input = command.substring(3);
+		}
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+String execute_command(String command)
+{
+	char command_char = 0;
+	int chan = -1;
+	char operation_char = 0;
+	String optional_input = String("");
+
+	if (parse_command(command, &command_char, &chan, &operation_char, &optional_input))
+	{
+		if (chan >= 0 && chan < CHAN_NUM)
+		{
+			if (operation_char == '?')
 			{
-				manual_switch_overrides[chan] = false;
+				return execute_get(command_char, chan);
 			}
-			else if (state == "HIGH" || state == "LOW")
+			else if (operation_char == ',')
 			{
-				manual_switch_overrides[chan] = true;
-				manual_switches_updated[chan] = true;
-				manual_switches[chan] = (state == "HIGH");
+				return execute_set(command_char, chan, optional_input);
 			}
 			else
 			{
-				return error_msg(10);
-			}
-			return state;
-		}
-		else if (command == 'T')
-		{
-			String time_str = Serial.readStringUntil('\n');
-			unsigned long switch_time = time_str.toInt();
-			if (switch_time < 10)
-			{
-				return error_msg(20);
-			}
-			else
-			{
-				switch_times[chan] = switch_time;
-				times[chan] = 0;
-				return time_str;
+				return error_msg(ERROR_COMMAND_NOT_SET_OR_GET);
 			}
 		}
 		else
 		{
-			return error_msg(1);
+			return error_msg(ERROR_CHAN_NOT_VALID);
 		}
 	}
 	else
 	{
-		return error_msg(0);
-	}
-}
-
-String execute_get(char command, int chan)
-{
-	if (Serial.read() == '\n')
-	{
-		if (command == 'S')
-		{
-			if (!manual_switch_overrides[chan])
-			{
-				return String("AUTO");
-			}
-			else if (manual_switches[chan])
-			{
-				return String("HIGH");
-			}
-			else
-			{
-				return String("LOW");
-			}
-		}
-		else if (command == 'T')
-		{
-			return String(switch_times[chan]);
-		}
-		else
-		{
-			return error_msg(1);
-		}
-	}
-	else
-	{
-		return error_msg(0);
-	}
-}
-
-String execute_command(char command, char chan, char is_set)
-{
-	int chan_int = chan_to_int(chan);
-	if (chan_int < 0 || chan_int >= num_chan)
-	{
-		return error_msg(2);
-	}
-
-	if (is_set == 'S')
-	{
-		return execute_set(command, chan_int);
-	}
-	else if (is_set == 'G')
-	{
-		return execute_get(command, chan_int);
-	}
-	else
-	{
-		return error_msg(3);
+		return error_msg(ERROR_COMMAND_SHORT);
 	}
 }
 
 void setup()
 {
-	Serial.begin(9600);
+	Serial.begin(BAUDRATE);
+	Serial.setTimeout(TIMEOUT);
 	time_now = millis();
-	for (int i = 0; i < num_chan; i++)
+	for (int i = 0; i < CHAN_NUM; i++)
 	{
 		pinMode(chans[i], OUTPUT);
-		digitalWrite(chans[i], LOW);
+		digitalWrite(chans[i], manual_switches[i]);
 		times[i] = time_now;
 	}
 }
 
 void loop()
 {
-	if (Serial.available() > 3)
+	if (Serial.available())
 	{
-		char command = Serial.read();
-		char chan = Serial.read();
-		char is_set = Serial.read();
-		String output = execute_command(command, chan, is_set);
-		Serial.print(output + String("\n"));
-	}
-	time_step = millis() - time_now;
-	time_now = millis();
-	for (int i = 0; i < num_chan; i++)
-	{
-		if (manual_switch_overrides[i] && manual_switches_updated[i])
+		String command = Serial.readStringUntil('\n');
+		if (command.endsWith(String("\r")))
 		{
-			manual_switches_updated[i] = false;
-			digitalWrite(chans[i], manual_switches[i]);
+			command = command.substring(0, command.length() - 1);
 		}
+		String output = execute_command(command);
+		Serial.println(output);
+	}
+	
+	unsigned long temp = millis();
+	unsigned long time_step = temp - time_now;
+	time_now = temp;
+	for (int i = 0; i < CHAN_NUM; i++)
+	{
 		if (manual_switch_overrides[i])
 		{
+			if (manual_switches_updated[i])
+			{
+				manual_switches_updated[i] = false;
+				digitalWrite(chans[i], manual_switches[i]);
+			}
 			continue;
 		}
 		times[i] += time_step;
