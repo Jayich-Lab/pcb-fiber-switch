@@ -8,6 +8,8 @@ It uses [Agiltron fiber-to-fiber MEMS switches](https://agiltron.com/product/fib
 A [teensy 3.2](https://www.pjrc.com/store/teensy32.html) is used to control those switches. It can be programmed to turn on/off switches periodically and/or directly controlled by a computer.
 Secondary TTL control can be used with each switch instead of the teensy. It is compatible with both 3.3 V logic level (<10 mA) and 5 V logic level (<15 mA).
 
+## Expected lifetime
+
 ## Part list
 ### Enclosure
 * 1x front panel in the repo (~$210)
@@ -24,6 +26,7 @@ Secondary TTL control can be used with each switch instead of the teensy. It is 
 ### Ribbon cable and connectors
 * 1x [10 pin ribbon cable](https://www.digikey.com/product-detail/en/assmann-wsw-components/AWG28-10-G-300/AE10G-10-ND) (~$5)
 * 17x [IDC connectors](https://www.digikey.com/product-detail/en/assmann-wsw-components/AWP-10-7240-T/HHKC10H-ND) (~$0.5)
+* 17x [IDC connector strain relieves](https://www.digikey.com/products/en?keywords=HSSR10-ND%09) (~$0.1)
 * 17x [IDC connector sockets](https://www.digikey.com/product-detail/en/assmann-wsw-components/AWH-10A-0232-T/AE11069-ND) (~$1.5)
 
 ### Controller board
@@ -40,7 +43,7 @@ Secondary TTL control can be used with each switch instead of the teensy. It is 
 * 1x [MEMS switch](https://agiltron.com/product/fiber-fiber-optical-switch/) (~$300-650)
 * 1x [Molex 0010897200](https://www.digikey.com/products/en?keywords=WM19410-ND%09) 2x10 header (~$2.8)
 * 1x [Molex 0015291025](https://www.digikey.com/products/en?keywords=WM23943-ND) header shunt (~$0.6)
-* 1x [Lite-On MOC3023S-TA1](https://www.digikey.com/product-detail/en/lite-on-inc/MOC3023S-TA1/160-1894-1-ND) optoisolator (~$0.6)
+* 1x [Sensata-Crydom CMX100D10](https://www.digikey.com/product-detail/en/sensata-crydom/CMX100D10/CC1709-ND/2177021) solid state switch (~$46)
 * 1x [E-switch 100DP1T2B4M6QE](https://www.digikey.com/product-detail/en/e-switch/100DP1T2B4M6QE/EG2404-ND) DPDT toggle switch (~$3.8)
 * 1x [Lite-On LTL1CHKRKNN](https://www.digikey.com/product-detail/en/lite-on-inc/LTL1CHKRKNN/160-1661-ND) LED (~$0.3)
 * 1x [TE connectivity 1-1337543-0](https://www.digikey.com/products/en?keywords=1-1337543-0) BNC right angle connector (~$1.7)
