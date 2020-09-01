@@ -12,6 +12,10 @@ Secondary TTL control can be used with each switch instead of the teensy. It is 
 
 The lifetime will likely be limited by the solid state switch and the fiber-to-fiber switch. The solid state switch states a lifetime of [>50 million operations](http://www.crydom.com/en/tech/newsletters/solid%20statements%20-%20life%20expectancy%20of%20ssrs.pdf), and the fiber-to-fiber switch with [10 million cycles](https://agiltron.com/PDFs/FFSW%201x2,%202x2.pdf). Assuming a channel changes its state every 5 seconds 24 x 7, the fiber-to-fiber switch has a lifetime of ~3 years. Both the solid state switch and the fiber switch can be relatively easily replaced as they are both through-hole mounted parts.
 
+## Delay
+
+The delay from input TTL / microcontroller state change to the fiber switched is approximately 4 ms, with 1 ms delay from the solid state switch, and 3 ms delay from the fiber-to-fiber switch.
+
 ## Part list
 ### Enclosure
 * 1x front panel in the repo (~$210)
@@ -32,7 +36,7 @@ The lifetime will likely be limited by the solid state switch and the fiber-to-f
 * 17x [IDC connector sockets](https://www.digikey.com/product-detail/en/assmann-wsw-components/AWH-10A-0232-T/AE11069-ND) (~$1.5)
 
 ### Controller board
-* 1x controller board in the repo (~$50 for 3 copies)
+* 1x [controller board in the repo](https://oshpark.com/shared_projects/qt3GwMaB) (~$30 for 3 copies)
 * 1x [Teensy 3.2 with pins](https://www.digikey.com/product-detail/en/adafruit-industries-llc/2756/1528-2385-ND) (~$20)
 * 2x [Molex 0022142144](https://www.digikey.com/product-detail/en/molex/0022142144/WM20972-ND) (~$1.84)
 * 1x [ON MC7805CTG](https://www.digikey.com/product-detail/en/on-semiconductor/MC7805CTG/MC7805CTGOS-ND) 5 V, 1 A voltage regulator (~$0.5)
@@ -41,7 +45,7 @@ The lifetime will likely be limited by the solid state switch and the fiber-to-f
 * 1x [0.33 uF capacitor](https://www.digikey.com/product-detail/en/yageo/CC1812KKX7R9BB334/311-3574-1-ND) (~$0.7)
 
 ### Switch boards (8x)
-* 1x switch board in the repo (~$60 for 3 copies, ~$30 per board for 8x)
+* 1x [switch board in the repo](https://oshpark.com/shared_projects/fBWNRkr0) (~$50 for 3 copies, ~$20 per board for 8x)
 * 1x [MEMS switch](https://agiltron.com/product/fiber-fiber-optical-switch/) (~$300-650)
 * 1x [Molex 0010897200](https://www.digikey.com/products/en?keywords=WM19410-ND%09) 2x10 header (~$2.8)
 * 1x [Molex 0015291025](https://www.digikey.com/products/en?keywords=WM23943-ND) header shunt (~$0.6)
@@ -57,3 +61,5 @@ The lifetime will likely be limited by the solid state switch and the fiber-to-f
 * 12x [6-32 x 1/4" nylon screws](https://www.digikey.com/product-detail/en/essentra-components/010632R025/RPC7281-ND) (~$0.1)
 * 4x [6-32 x 1/4" self-tapping screws](https://www.digikey.com/products/en?keywords=1421J6) (~$5 per pack of 6)
 * 8x [6-32 1" long standoff](https://www.digikey.com/product-detail/en/keystone-electronics/1903E/36-1903E-ND) (~$0.9)
+
+## Assembly Instruction
