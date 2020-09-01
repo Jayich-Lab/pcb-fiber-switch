@@ -1,6 +1,6 @@
-const int BAUDRATE = 9600;
+const int BAUDRATE = 57600;
 const int TIMEOUT = 50;
-const int MIN_SWITCH_TIME = 10;
+const int MIN_SWITCH_TIME = 1000;
 
 const int CHAN_NUM = 8;
 
@@ -19,8 +19,8 @@ unsigned int switch_times[CHAN_NUM] = {1000, 2000, 3000, 4000,
                                         5000, 6000, 7000, 8000};
 bool auto_switches[CHAN_NUM] = {false, false, false, false,
                                 false, false, false, false};
-bool manual_switch_overrides[CHAN_NUM] = {false, false, false, false,
-                                          false, false, false, false};
+bool manual_switch_overrides[CHAN_NUM] = {true, true, true, true,
+                                          true, true, true, true};
 bool manual_switches[CHAN_NUM] = {false, false, false, false,
                                   false, false, false, false};
 bool manual_switches_updated[CHAN_NUM] = {false, false, false, false,
@@ -175,7 +175,14 @@ void setup()
 	for (int i = 0; i < CHAN_NUM; i++)
 	{
 		pinMode(chans[i], OUTPUT);
+    if (manual_switch_overrides[i])
+    {
 		digitalWrite(chans[i], manual_switches[i]);
+    }
+    else
+    {
+    digitalWrite(chans[i], auto_switches[i]);
+    }
 		times[i] = time_now;
 	}
 }
@@ -223,5 +230,4 @@ void loop()
 			digitalWrite(chans[i], LOW);
 		}
 	}
-	delay(1);
 }
