@@ -6,9 +6,11 @@ This can be used for fiber multiplexing to a wavemeter (_e.g._, High-Finesse WS8
 
 It uses [Agiltron fiber-to-fiber MEMS switches](https://agiltron.com/product/fiber-fiber-optical-switch/), which costs around $300-700 each depending on the fiber, wavelength, and connector.
 A [teensy 3.2](https://www.pjrc.com/store/teensy32.html) is used to control those switches. It can be programmed to turn on/off switches periodically and/or directly controlled by a computer.
-Secondary TTL control can be used with each switch instead of the teensy. It is compatible with both 3.3 V logic level (<10 mA) and 5 V logic level (<15 mA).
+Secondary TTL control can be used with each switch instead of the teensy. It is compatible with both 3.3 V and 5 V logic levels (Any voltage between 3 to 10 V works) and needs 15 mA current.
 
 ## Expected lifetime
+
+The lifetime will likely be limited by the solid state switch and the fiber-to-fiber switch. The solid state switch states a lifetime of [>50 million operations](http://www.crydom.com/en/tech/newsletters/solid%20statements%20-%20life%20expectancy%20of%20ssrs.pdf), and the fiber-to-fiber switch with [10 million cycles](https://agiltron.com/PDFs/FFSW%201x2,%202x2.pdf). Assuming a channel changes its state every 5 seconds 24 x 7, the fiber-to-fiber switch has a lifetime of ~3 years. Both the solid state switch and the fiber switch can be relatively easily replaced as they are both through-hole mounted parts.
 
 ## Part list
 ### Enclosure
