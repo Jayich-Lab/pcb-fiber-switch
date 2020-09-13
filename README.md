@@ -83,9 +83,40 @@ The delay from input TTL / microcontroller state change to the fiber switched is
 * The polarities of the cables matter. The cable between the control board and the first switch board should look like [control_board_switch_board_connection.jpg](gallery/control_board_switch_board_connection.jpg).
 * The cable between switch boards should look like the one below. TO DO: Add image.
 * If using the frontpanel design in the repository, the length of the cable between the control board and the first switch board should be TO DO, and the length of the cable between switch boards should be TO DO.
-* Test the control board by loading the teensy with controller.ino. Change `manual_switch_overrides` array to all `false` to start all channels in auto mode. Remove the USB cable to the computer before putting the teensy on the control board, and connect the control board to a switch board (or more). Change the toggle switches on switch boards to right when viewing from the top. Connect 8 V power to the control board. Use a jumper to select a TTL channel from 1 to 8 on the 2x10 connector on each jumper board. Currently, TTL1-8 are connected to the teensy channels 9-2 respectively. GND and VCC pins are connected together and do not need jumpers across. The LED on each of the switch boards should change corresponding to the teensy channel output.
+* Test the control board by loading the teensy with [controller.ino](controller/controller.ino). Change `manual_switch_overrides` array to all `false` to start all channels in auto mode. Remove the USB cable to the computer before putting the teensy on the control board, and connect the control board to a switch board (or more). Change the toggle switches on switch boards to right when viewing from the top. Connect 8 V power to the control board. Use a jumper to select a TTL channel from 1 to 8 on the 2x10 connector on each jumper board. Currently, TTL1-8 are connected to the teensy channels 9-2 respectively. GND and VCC pins are connected together and do not need jumpers across. The LED on each of the switch boards should change corresponding to the teensy channel output.
 * Separate the USB power from the board power. Choose a solution from [Using External Power and USB](https://www.pjrc.com/teensy/external_power.html).
 
 ## Computer control
 
-TO DO
+The teensy can be controlled using USB serial connnections, with baud rate 57600, 8 data bits, parity none, and 1 stop bit. Line termination is "\n" (LN).
+
+### Command syntax
+
+**S{channel},{state}\n**: Sets the state of a channel.
+- channel: 1 to 8, switch channel to set. This corresponds to switch boards with the corresponding TTL jumper shorted.
+- state: "HIGH", "LOW", or "AUTO". Sets the channel state to high, low, or auto switching.
+
+Example: "S1,HIGH\n".    
+Returns the new state of the switch if successful, otherwise returns an error string.
+
+**S{channel}?\n**: Gets the state of a channel.
+- channel: 1 to 8, switch channel to get. This corresponds to switch boards with the corresponding TTL jumper shorted.
+
+Example: "S1?\n".    
+Returns the state of the switch if successful, otherwise returns an error string.
+
+**T{channel},{time}\n**: Sets the auto switch time of a channel in ms.
+- channel: 1 to 8, switch channel to set. This corresponds to switch boards with the corresponding TTL jumper shorted.
+- time: integer, auto switch time for the channel in ms. It must be longer than `MIN_SWITCH_TIME` defined in [controller.ino](controller/controller.ino).
+
+Example: "T1,10000\n".    
+Returns the new auto switch time if successful, otherwise returns an error string.
+
+**T{channel}?\n**: Gets the auto switch time of a channel in ms.
+- channel: 1 to 8, switch channel to get. This corresponds to switch boards with the corresponding TTL jumper shorted.
+
+Example: "T1?\n".    
+Returns the auto switch time if successful, otherwise returns an error string.
+
+### Error strings
+If a command fails in an error, an error string in the format of "ERROR {error_code}\n" may be returned. See [controller.ino](controller/controller.ino) for a list of error codes.
