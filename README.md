@@ -67,7 +67,8 @@ The delay from input TTL / microcontroller state change to the fiber switched is
 ### Switch board
 * Install R1 first with the 300 ohm resistor. A 150 ohm resistor could work here, but we found the LED to be too bright.
 * Solder the IDC connector on the bottom side of the board (the other side of the surface mounted R1). This connector must be installed before the IDC connector on the front side, as the pins will be covered by the other connector. Consider not pushing the connector all the way in to prevent "floating" the other connector. If it is pushed all the way in, its pins may need to be trimmed in order for the other connector's pins to be soldered easily.
-* Install all other components in the order of your perference. Make sure the solid state relay U1 is installed all the way in, and consider tilting it a bit to reduce the height. Otherwise the switch will take much height in a compact setup. Consider installing the fiber-to-fiber switch at last to prevent damage when soldering other components. TO DO: Add image.
+* Install all other components in the order of your perference. Make sure the solid state relay U1 is installed all the way in, and consider tilting it a bit to reduce the height. Otherwise the switch will take much height in a compact setup. Consider installing the fiber-to-fiber switch at last to prevent damage when soldering other components.
+* The switch board should look like [switch_board_top.jpg](gallery/switch_board_top.jpg) and [switch_board_bottom.jpg](gallery/switch_board_bottom.jpg).
 * Test the switch board without the fiber-to-fiber switch. To do that, provide 5 V on the VCC pin, and 0 V on the GND pin. Connect a 1 Hz, 0 to 5 V square wave on the BNC input, and switch the toggle switch to right when viewing from the top side of the board. The LED should flash at 1 Hz.
 
 ### Control board
@@ -75,10 +76,11 @@ The delay from input TTL / microcontroller state change to the fiber switched is
 * Solder the teensy board and pins together. To ensure the pins are vertically soldered, a breadboard can be used to help maintaining the position of pins. The control board itself can be used too.
 * Solder the control board and pin sockets together. Similarly, the teensy can be used to ensure alignment.
 * Connect the voltage regulator with the heat sink.
-* Solder everything else. Solder 2 wires from PAD1 and PAD2 for testing, and later for connecting to the power supply. PAD1 should be +8V, and PAD2 should be GND. TO DO: Add image.
+* Solder everything else. Solder 2 wires from PAD1 and PAD2 for testing, and later for connecting to the power supply. PAD1 should be +8V, and PAD2 should be GND.
+* The control board should look like [control_board_top.jpg](gallery/control_board_top.jpg).
 
 ### Wiring
-* The polarities of the cables matter. The cable between the control board and the first switch board should look like the one below. TO DO: Add image.
+* The polarities of the cables matter. The cable between the control board and the first switch board should look like [control_board_switch_board_connection.jpg](gallery/control_board_switch_board_connection.jpg).
 * The cable between switch boards should look like the one below. TO DO: Add image.
 * If using the frontpanel design in the repository, the length of the cable between the control board and the first switch board should be TO DO, and the length of the cable between switch boards should be TO DO.
 * Test the control board by loading the teensy with controller.ino. Change `manual_switch_overrides` array to all `false` to start all channels in auto mode. Remove the USB cable to the computer before putting the teensy on the control board, and connect the control board to a switch board (or more). Change the toggle switches on switch boards to right when viewing from the top. Connect 8 V power to the control board. Use a jumper to select a TTL channel from 1 to 8 on the 2x10 connector on each jumper board. Currently, TTL1-8 are connected to the teensy channels 9-2 respectively. GND and VCC pins are connected together and do not need jumpers across. The LED on each of the switch boards should change corresponding to the teensy channel output.
