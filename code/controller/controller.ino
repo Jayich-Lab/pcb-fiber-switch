@@ -14,7 +14,7 @@ const int ERROR_TIME_NOT_VALID = 5;
 unsigned long time_now = 0;
 unsigned long times[CHAN_NUM] = {0, 0, 0, 0, 0, 0, 0, 0};
 
-int chans[CHAN_NUM] = {2, 3, 4, 5, 6, 7, 8, 9};
+int chans[CHAN_NUM] = {9, 8, 7, 6, 5, 4, 3, 2};
 unsigned int switch_times[CHAN_NUM] = {1000, 2000, 3000, 4000,
                                         5000, 6000, 7000, 8000};
 bool auto_switches[CHAN_NUM] = {false, false, false, false,
