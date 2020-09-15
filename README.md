@@ -69,7 +69,7 @@ The delay from input TTL / microcontroller state change to the fiber switched is
 * Solder the IDC connector on the bottom side of the board (the other side of the surface mounted R1). This connector must be installed before the IDC connector on the front side, as the pins will be covered by the other connector. Consider not pushing the connector all the way in to prevent "floating" the other connector. If it is pushed all the way in, its pins may need to be trimmed in order for the other connector's pins to be soldered easily.
 * Install all other components in the order of your perference. Make sure the solid state relay U1 is installed all the way in, and consider tilting it a bit to reduce the height. Otherwise the switch will take much height in a compact setup. Consider installing the fiber-to-fiber switch at last to prevent damage when soldering other components.
 * The switch board should look like [switch_board_top.jpg](gallery/switch_board_top.jpg) and [switch_board_bottom.jpg](gallery/switch_board_bottom.jpg).
-* Test the switch board without the fiber-to-fiber switch. To do that, provide 5 V on the VCC pin, and 0 V on the GND pin. Connect a 1 Hz, 0 to 5 V square wave on the BNC input, and switch the toggle switch to right when viewing from the top side of the board. The LED should flash at 1 Hz.
+* Test the switch board without the fiber-to-fiber switch. To do that, provide 5 V on the VCC pin, and 0 V on the GND pin. Connect a 1 Hz, 0 to 5 V square wave on the BNC input, and switch the toggle switch to left when viewing from the top side of the board. The LED should flash at 1 Hz.
 
 ### Control board
 * Solder the surface mount capacitor.
