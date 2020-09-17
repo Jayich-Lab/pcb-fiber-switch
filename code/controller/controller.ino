@@ -2,6 +2,7 @@ const int BAUDRATE = 57600;
 const int TIMEOUT = 50;
 const int MIN_SWITCH_TIME = 1000;
 
+const int LEDPIN = 13;
 const int CHAN_NUM = 8;
 
 const int ERROR_COMMAND_SHORT = 0;
@@ -15,12 +16,12 @@ unsigned long time_now = 0;
 unsigned long times[CHAN_NUM] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 int chans[CHAN_NUM] = {9, 8, 7, 6, 5, 4, 3, 2};
-unsigned int switch_times[CHAN_NUM] = {1000, 2000, 3000, 4000,
-                                        5000, 6000, 7000, 8000};
+unsigned int switch_times[CHAN_NUM] = {5000, 5000, 5000, 5000,
+                                        5000, 5000, 5000, 5000};
 bool auto_switches[CHAN_NUM] = {false, false, false, false,
                                 false, false, false, false};
-bool manual_switch_overrides[CHAN_NUM] = {true, true, true, true,
-                                          true, true, true, true};
+bool manual_switch_overrides[CHAN_NUM] = {false, false, false, false,
+                                          false, false, false, false};
 bool manual_switches[CHAN_NUM] = {false, false, false, false,
                                   false, false, false, false};
 bool manual_switches_updated[CHAN_NUM] = {false, false, false, false,
@@ -171,6 +172,14 @@ void setup()
 {
 	Serial.begin(BAUDRATE);
 	Serial.setTimeout(TIMEOUT);
+  pinMode(LEDPIN, OUTPUT);
+  for (int i = 0; i < 3; i++)
+  {
+    digitalWrite(LEDPIN, HIGH);
+    delay(200);
+    digitalWrite(LEDPIN, LOW);
+    delay(200);
+  }
 	time_now = millis();
 	for (int i = 0; i < CHAN_NUM; i++)
 	{
