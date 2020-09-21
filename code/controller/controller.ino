@@ -20,8 +20,8 @@ unsigned int switch_times[CHAN_NUM] = {5000, 5000, 5000, 5000,
                                         5000, 5000, 5000, 5000};
 bool auto_switches[CHAN_NUM] = {false, false, false, false,
                                 false, false, false, false};
-bool manual_switch_overrides[CHAN_NUM] = {false, false, false, false,
-                                          false, false, false, false};
+bool manual_switch_overrides[CHAN_NUM] = {true, true, true, true,
+                                          true, true, true, true};
 bool manual_switches[CHAN_NUM] = {false, false, false, false,
                                   false, false, false, false};
 bool manual_switches_updated[CHAN_NUM] = {false, false, false, false,
