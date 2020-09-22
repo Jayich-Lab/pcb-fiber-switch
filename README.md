@@ -1,6 +1,8 @@
 # pcb-fiber-switch
 A 8-channel SPDT optical fiber switch box
 
+Note: You might need to do modifications if you want to build a fiber switch based on this repository. See https://github.com/Jayich-Lab/pcb-fiber-switch/issues/1 for a (probably incomplete) list of issues in the current version. We avoid many issues mentioned in the above link by mounting the switch boards at the bottom of the enclosure, and add spacers between the front panel and the box.
+
 This switch box provides 8x SPDT optical fiber switches that can open/close in a few ms. 
 This can be used for fiber multiplexing to a wavemeter (_e.g._, High-Finesse WS8 with 1x8 switch). 
 
